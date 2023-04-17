@@ -1,0 +1,58 @@
+{
+	"pathBitwise" : "Bits",
+
+	"nameAnd"     : "Y de bits",
+	"operatorAnd" : "&",
+	"leafAnd"     : "Y de bits",
+
+	"nameOr"     : "O de bits",
+	"operatorOr" : "|",
+	"leafOr"     : "O de bits",
+
+	"nameNot"     : "NO de bits",
+	"literalNot" : "~",
+	"leafNot"     : "NO de bits",
+
+	"nameXOr"     : "O exclusivo de bits",
+	"operatorXOr" : "^",
+	"leafXOr"     : "O exclusivo de bits",
+
+	"nameLeftShift"     : "Corrimiento a la izquierda",
+	"operatorLeftShift" : "<<",
+	"leafLeftShift"     : "<< Corrimiento a la izquierda",
+
+	"nameRightShift"     : "Corrimiento a la derecha",
+	"operatorRightShift" : ">>",
+	"leafRightShift"     : ">> Corrimiento a la derecha",
+
+	"childrenFunctions" : [ "Valor", "Posición" ],
+
+	"nameSetBit"     : "Fijar bit",
+	"mnemonicSetBit" : "FijarBit",
+	"leafSetBit"     : "Fijar bit",
+
+	"nameClearBit"     : "Limpiar bit",
+	"mnemonicClearBit" : "LimpiarBit",
+	"leafClearBit"     : "Limpiar bit",
+
+	"nameFlipBit"     : "Voltear bit",
+	"mnemonicFlipBit" : "VoltearBit",
+	"leafFlipBit"     : "Voltear bit",
+
+	"nameGetBit"     : "Obtener bit",
+	"mnemonicGetBit" : "ObtenerBit",
+	"leafGetBit"     : "Obtener bit",
+
+	"nameTestBit"     : "Probar bit",
+	"mnemonicTestBit" : "ProbarBit",
+	"leafTestBit"     : "Probar bit",
+
+	"nameBitLength"     : "Longitud bits",
+	"mnemonicBitLength" : "LongitudBits",
+	"leafBitLength"     : "Longitud bits",
+
+	"nameBitCount"     : "Conteo de bits",
+	"mnemonicBitCount" : "ConteoBits",
+	"leafBitCount"     : "Conteo de bits"
+}
+

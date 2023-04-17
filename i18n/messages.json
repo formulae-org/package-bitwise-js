@@ -1,0 +1,58 @@
+{
+	"pathBitwise" : "Bitwise",
+
+	"nameAnd"     : "Bitwise And",
+	"operatorAnd" : "&",
+	"leafAnd"     : "AND",
+
+	"nameOr"     : "Bitwise Or",
+	"operatorOr" : "|",
+	"leafOr"     : "OR",
+
+	"nameNot"     : "Bitwise Not",
+	"literalNot" : "~",
+	"leafNot"     : "NOT",
+
+	"nameXOr"     : "Bitwise XOr",
+	"operatorXOr" : "^",
+	"leafXOr"     : "XOR",
+
+	"nameLeftShift"     : "Bitwise left shift",
+	"operatorLeftShift" : "<<",
+	"leafLeftShift"     : "<< Left shift",
+
+	"nameRightShift"     : "Bitwise right shift",
+	"operatorRightShift" : ">>",
+	"leafRightShift"     : ">> Right shift",
+
+	"childrenFunctions" : [ "Value", "Position" ],
+
+	"nameSetBit"     : "Bitwise set bit",
+	"mnemonicSetBit" : "SetBit",
+	"leafSetBit"     : "Set bit",
+
+	"nameClearBit"     : "Bitwise clear bit",
+	"mnemonicClearBit" : "ClearBit",
+	"leafClearBit"     : "Clear bit",
+
+	"nameFlipBit"     : "Bitwise flip bit",
+	"mnemonicFlipBit" : "FlipBit",
+	"leafFlipBit"     : "Flip bit",
+
+	"nameGetBit"     : "Bitwise get bit",
+	"mnemonicGetBit" : "GetBit",
+	"leafGetBit"     : "Get bit",
+
+	"nameTestBit"     : "Bitwise test bit",
+	"mnemonicTestBit" : "TestBit",
+	"leafTestBit"     : "Test bit",
+
+	"nameBitLength"     : "Bitwise bit length",
+	"mnemonicBitLength" : "BitLength",
+	"leafBitLength"     : "Bit length",
+
+	"nameBitCount"     : "Bitwise bit count",
+	"mnemonicBitCount" : "BitCount",
+	"leafBitCount"     : "Bit count"
+}
+
