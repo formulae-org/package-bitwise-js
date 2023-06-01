@@ -56,7 +56,7 @@ Bitwise.binary = async (binary, session) => {
 					result = result | (1n << bi);
 					break;
 				case "Bitwise.ClearBit":
-					result = result & (1n << bi);
+					result = result & ~(1n << bi);
 					break;
 				case "Bitwise.FlipBit":
 					resulr = result ^ (1n << bi);
