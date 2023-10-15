@@ -105,18 +105,18 @@ Bitwise.unary = async (unary, session) => {
 };
 
 Bitwise.setReducers = () => {
-	ReductionManager.addReducer("Bitwise.And",        Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.Or",         Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.XOr",        Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.LeftShift",  Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.RightShift", Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.SetBit",     Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.ClearBit",   Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.FlipBit",    Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.GetBit",     Bitwise.binary);
-	ReductionManager.addReducer("Bitwise.TestBit",    Bitwise.binary);
+	ReductionManager.addReducer("Bitwise.And",        Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.Or",         Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.XOr",        Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.LeftShift",  Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.RightShift", Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.SetBit",     Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.ClearBit",   Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.FlipBit",    Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.GetBit",     Bitwise.binary, "Bitwise.binary");
+	ReductionManager.addReducer("Bitwise.TestBit",    Bitwise.binary, "Bitwise.binary");
 
-	ReductionManager.addReducer("Bitwise.Not",       Bitwise.unary);
-	ReductionManager.addReducer("Bitwise.BitLength", Bitwise.unary);
-	ReductionManager.addReducer("Bitwise.BitCount",  Bitwise.unary);
+	ReductionManager.addReducer("Bitwise.Not",       Bitwise.unary, "Bitwise.unary");
+	ReductionManager.addReducer("Bitwise.BitLength", Bitwise.unary, "Bitwise.unary");
+	ReductionManager.addReducer("Bitwise.BitCount",  Bitwise.unary, "Bitwise.unary");
 };
