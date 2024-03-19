@@ -75,7 +75,11 @@ Bitwise.binary = async (binary, session) => {
 		binary.replaceBy(Formulae.createExpression(result));
 	}
 	else {
-		binary.replaceBy(CanonicalArithmetic.bigInt2Expr(result));
+		binary.replaceBy(
+			CanonicalArithmetic.canonical2InternalNumber(
+				new CanonicalArithmetic.Integer(result)
+			)
+		);
 	}
 	return true;
 };
@@ -100,7 +104,11 @@ Bitwise.unary = async (unary, session) => {
 			break;
 	}
 	
-	unary.replaceBy(CanonicalArithmetic.bigInt2Expr(result));
+	unary.replaceBy(
+		CanonicalArithmetic.canonical2InternalNumber(
+			new CanonicalArithmetic.Integer(result)
+		)
+	);
 	return true;
 };
 
