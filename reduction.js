@@ -26,67 +26,64 @@ Bitwise.binary = async (binary, session) => {
 	let tag = binary.getTag();
 	
 	for (let i = 0, n = binary.children.length; i < n; ++i) {
-		bi = CanonicalArithmetic.getBigInt(binary.children[i]);
-		if (bi === undefined) {
+		n = CanonicalArithmetic.getInteger(binary.children[i]);
+		if (n === undefined) {
 			ReductionManager.setInError(binary.children[i], "Expression must be an integer number");
 			throw new ReductionError();
 		}
 		
 		if (i == 0) {
-			result = bi;
+			result = n;
 		}
 		else {
 			switch (tag) {
 				case "Bitwise.And":
-					result &= bi;
+					result = result.bitwiseAnd(n);
 					break;
 				case "Bitwise.Or":
-					result |= bi;
+					result = result.bitwiseOr(n);
 					break;
 				case "Bitwise.XOr":
-					result ^= bi;
+					result = result.bitwiseXOr(n);
 					break;
 				case "Bitwise.LeftShift":
-					result <<= bi;
+					result = result.bitwiseLeftShift(n);
 					break;
 				case "Bitwise.RightShift":
-					result >>= bi;
+					result = result.bitwiseRightShift(n);
 					break;
 				case "Bitwise.SetBit":
-					result = result | (1n << bi);
+					result = result.bitwiseSetBit(n);
 					break;
 				case "Bitwise.ClearBit":
-					result = result & ~(1n << bi);
+					result = result.bitwiseClearBit(n);
 					break;
 				case "Bitwise.FlipBit":
-					resulr = result ^ (1n << bi);
+					resulr = result.bitwiseFlipBit(n);
 					break;
 				case "Bitwise.GetBit":
-					result = (result & (1n << bi)) != 0n ? 1n : 0n;
+					result = result.bitwiseGetBit(n);
 					break;
 				case "Bitwise.TestBit":
-					result = (result & (1n << bi)) != 0n ? "Logic.True" : "Logic.False";
-					break;
+					binary.replaceBy(
+						Formulae.createExpression(
+							result.bitwiseTestBit(n).isZero() ? "Logic.False" : "Logic.True"
+						)
+					);
+					return true;
 			}
 		}
 	}
 	
-	if (tag === "Bitwise.TestBit") {
-		binary.replaceBy(Formulae.createExpression(result));
-	}
-	else {
-		binary.replaceBy(
-			CanonicalArithmetic.canonical2InternalNumber(
-				new CanonicalArithmetic.Integer(result)
-			)
-		);
-	}
+	binary.replaceBy(
+		CanonicalArithmetic.createInternalNumber(result)
+	);
 	return true;
 };
 
 Bitwise.unary = async (unary, session) => {
-	let bi = CanonicalArithmetic.getBigInt(unary.children[0]);
-	if (bi === undefined) {
+	let n = CanonicalArithmetic.getInteger(unary.children[0]);
+	if (n === undefined) {
 		ReductionManager.setInError(unary.children[0], "Expression must be an integer number");
 		throw new ReductionError();
 	}
@@ -94,20 +91,18 @@ Bitwise.unary = async (unary, session) => {
 	let result;
 	switch (unary.getTag()) {
 		case "Bitwise.Not":
-			result = ~bi;
+			result = n.bitwiseNot();
 			break;
 		case "Bitwise.BitLength":
-			result = BigInt(bi.toString(2).length);
+			result = n.bitwiseBitLength();
 			break;
 		case "Bitwise.BitCount":
-			result = BigInt(bi.toString(2).replace(/0/g, "").length);
+			result = n.bitwiseBitCount();
 			break;
 	}
 	
 	unary.replaceBy(
-		CanonicalArithmetic.canonical2InternalNumber(
-			new CanonicalArithmetic.Integer(result)
-		)
+		CanonicalArithmetic.createInternalNumber(result)
 	);
 	return true;
 };
