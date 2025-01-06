@@ -76,7 +76,7 @@ Bitwise.binary = async (binary, session) => {
 	}
 	
 	binary.replaceBy(
-		CanonicalArithmetic.createInternalNumber(result)
+		CanonicalArithmetic.createInternalNumber(result, session)
 	);
 	return true;
 };
@@ -102,7 +102,7 @@ Bitwise.unary = async (unary, session) => {
 	}
 	
 	unary.replaceBy(
-		CanonicalArithmetic.createInternalNumber(result)
+		CanonicalArithmetic.createInternalNumber(result, session)
 	);
 	return true;
 };
