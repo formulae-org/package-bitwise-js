@@ -24,50 +24,51 @@ Bitwise.binary = async (binary, session) => {
 	let result;
 	let bi;
 	let tag = binary.getTag();
+	let integer;
 	
 	for (let i = 0, n = binary.children.length; i < n; ++i) {
-		n = CanonicalArithmetic.getInteger(binary.children[i]);
-		if (n === undefined) {
+		integer = CanonicalArithmetic.getInteger(binary.children[i]);
+		if (integer === undefined) {
 			ReductionManager.setInError(binary.children[i], "Expression must be an integer number");
 			throw new ReductionError();
 		}
 		
 		if (i == 0) {
-			result = n;
+			result = integer;
 		}
 		else {
 			switch (tag) {
 				case "Bitwise.And":
-					result = result.bitwiseAnd(n);
+					result = result.bitwiseAnd(integer);
 					break;
 				case "Bitwise.Or":
-					result = result.bitwiseOr(n);
+					result = result.bitwiseOr(integer);
 					break;
 				case "Bitwise.XOr":
-					result = result.bitwiseXOr(n);
+					result = result.bitwiseXOr(integer);
 					break;
 				case "Bitwise.LeftShift":
-					result = result.bitwiseLeftShift(n);
+					result = result.bitwiseLeftShift(integer);
 					break;
 				case "Bitwise.RightShift":
-					result = result.bitwiseRightShift(n);
+					result = result.bitwiseRightShift(integer);
 					break;
 				case "Bitwise.SetBit":
-					result = result.bitwiseSetBit(n);
+					result = result.bitwiseSetBit(integer);
 					break;
 				case "Bitwise.ClearBit":
-					result = result.bitwiseClearBit(n);
+					result = result.bitwiseClearBit(integer);
 					break;
 				case "Bitwise.FlipBit":
-					resulr = result.bitwiseFlipBit(n);
+					resulr = result.bitwiseFlipBit(integer);
 					break;
 				case "Bitwise.GetBit":
-					result = result.bitwiseGetBit(n);
+					result = result.bitwiseGetBit(integer);
 					break;
 				case "Bitwise.TestBit":
 					binary.replaceBy(
 						Formulae.createExpression(
-							result.bitwiseTestBit(n).isZero() ? "Logic.False" : "Logic.True"
+							result.bitwiseTestBit(integer).isZero() ? "Logic.False" : "Logic.True"
 						)
 					);
 					return true;
