@@ -68,7 +68,7 @@ Bitwise.binary = async (binary, session) => {
 				case "Bitwise.TestBit":
 					binary.replaceBy(
 						Formulae.createExpression(
-							result.bitwiseTestBit(integer).isZero() ? "Logic.False" : "Logic.True"
+							result.bitwiseGetBit(integer).isZero() ? "Logic.False" : "Logic.True"
 						)
 					);
 					return true;
