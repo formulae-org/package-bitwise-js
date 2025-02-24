@@ -27,7 +27,7 @@ Bitwise.binary = async (binary, session) => {
 	let integer;
 	
 	for (let i = 0, n = binary.children.length; i < n; ++i) {
-		integer = CanonicalArithmetic.getInteger(binary.children[i]);
+		integer = Arithmetic.getInteger(binary.children[i]);
 		if (integer === undefined) {
 			ReductionManager.setInError(binary.children[i], "Expression must be an integer number");
 			throw new ReductionError();
@@ -77,13 +77,13 @@ Bitwise.binary = async (binary, session) => {
 	}
 	
 	binary.replaceBy(
-		CanonicalArithmetic.createInternalNumber(result, session)
+		Arithmetic.createInternalNumber(result, session)
 	);
 	return true;
 };
 
 Bitwise.unary = async (unary, session) => {
-	let n = CanonicalArithmetic.getInteger(unary.children[0]);
+	let n = Arithmetic.getInteger(unary.children[0]);
 	if (n === undefined) {
 		ReductionManager.setInError(unary.children[0], "Expression must be an integer number");
 		throw new ReductionError();
@@ -103,7 +103,7 @@ Bitwise.unary = async (unary, session) => {
 	}
 	
 	unary.replaceBy(
-		CanonicalArithmetic.createInternalNumber(result, session)
+		Arithmetic.createInternalNumber(result, session)
 	);
 	return true;
 };
